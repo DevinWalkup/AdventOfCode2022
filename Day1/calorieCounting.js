@@ -24,10 +24,18 @@ const CalorieCounting = () => {
 		resultDict[elfNum] = resultDict[elfNum] + Number(i);
 	}
 
+	resultDict = resultDict.sort((a, b) => {
+		return b - a;
+	});
+
+	const mostCalories = resultDict[0];
+	const topThreeCalories = resultDict.slice(0, 3).reduce((a, b) => {
+		return a + b;
+	}, 0);
+
 	console.log(
-		resultDict.sort((a, b) => {
-			return b - a;
-		})[0]
+		`Most Calories: ${mostCalories}`,
+		`Top Three Calories: ${topThreeCalories}`
 	);
 };
 

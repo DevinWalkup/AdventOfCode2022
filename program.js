@@ -4,6 +4,7 @@ const GetSolutionForDay = (dayNumber) => {
 	switch (dayNumber) {
 		case 1:
 			CalorieCounting();
+			return;
 	}
 };
 
