@@ -1,0 +1,16 @@
+{
+	"name": "AdventOfCode2022",
+	"version": "1.0.0",
+	"description": "Advent of Code 2022 solutions",
+	"main": "index.js",
+	"author": "devinwalkup <devinwalkup@yahoo.com>",
+	"license": "MIT",
+	"private": false,
+	"type": "module",
+	"scripts": {
+		"start": "node index.js $1"
+	},
+	"dependencies": {
+		"fs": "^0.0.1-security"
+	}
+}
