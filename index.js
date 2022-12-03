@@ -11,13 +11,13 @@ if (!dayNumber) {
 const GetAnswer = () => {
 	switch (dayNumber) {
 		case 1:
-			CalorieCounting();
+			CalorieCounting(dayNumber);
 			return;
 		case 2:
-			RockPaperScissors();
+			RockPaperScissors(dayNumber);
 			return;
 		case 3:
-			RucksackReorganization();
+			RucksackReorganization(dayNumber);
 			return;
 	}
 };

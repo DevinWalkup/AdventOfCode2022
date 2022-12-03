@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { GetData } from '../utils.js';
 
 const actionToLetter = [
 	{
@@ -27,25 +27,16 @@ const actionToLetter = [
 	},
 ];
 
-const RockPaperScissors = () => {
-	GetTotalScore();
-	GetScoreBasedOnRequiredMove();
+const RockPaperScissors = (dayNumber) => {
+	GetTotalScore(dayNumber);
+	GetScoreBasedOnRequiredMove(dayNumber);
 };
 
-const GetData = () => {
-	return readFileSync('./Day2/data.txt', {
-		encoding: 'utf-8',
-	})
-		.toString()
-		.split('\n')
-		.map((d) => {
-			let parts = d.split('');
-			return [parts[0], parts[2]];
-		});
-};
-
-const GetTotalScore = () => {
-	let data = GetData();
+const GetTotalScore = (dayNumber) => {
+	let data = GetData(dayNumber).map((d) => {
+		let parts = d.split('');
+		return [parts[0], parts[2]];
+	});
 
 	let score = data.reduce((sum, round) => {
 		let opponentMove = actionToLetter.find((a) => a.opponent === round[0]);
@@ -71,8 +62,11 @@ const GetRoundMultiplier = (opponentMove, responseMove) => {
 	return roundMultiplier;
 };
 
-const GetScoreBasedOnRequiredMove = () => {
-	let data = GetData();
+const GetScoreBasedOnRequiredMove = (dayNumber) => {
+	let data = GetData(dayNumber).map((d) => {
+		let parts = d.split('');
+		return [parts[0], parts[2]];
+	});
 
 	let responseToAction = [
 		{

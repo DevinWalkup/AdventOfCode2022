@@ -1,12 +1,7 @@
-import { readFileSync } from 'fs';
+import { GetData } from '../utils.js';
 
-const CalorieCounting = () => {
-	let data = readFileSync('./Day1/data.txt', {
-		encoding: 'utf-8',
-	})
-		.toString()
-		.split('\n')
-		.map((i) => (i === '' ? '_new_' : i));
+const CalorieCounting = (dayNumber) => {
+	let data = GetData(dayNumber).map((i) => (i === '' ? '_new_' : i));
 
 	let resultDict = [];
 	let elfNum = 1;

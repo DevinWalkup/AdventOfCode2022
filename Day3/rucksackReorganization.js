@@ -1,14 +1,11 @@
-import { readFileSync } from 'fs';
+import { GetData } from '../utils.js';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 const letters = alphabet.split('');
 
-const GetData = () => {
-	return readFileSync('./Day3/data.txt', {
-		encoding: 'utf-8',
-	})
-		.toString()
-		.split('\n');
+const RucksackReorganization = (dayNumber) => {
+	GetCompartmentTotal(dayNumber);
+	ElfIdentification(dayNumber);
 };
 
 const GetAlphabeticalNumber = (l) => {
@@ -23,13 +20,8 @@ const GetAlphabeticalNumber = (l) => {
 	return Math.ceil(index + 1) + 26;
 };
 
-const RucksackReorganization = () => {
-	GetCompartmentTotal();
-	ElfIdentification();
-};
-
-const GetCompartmentTotal = () => {
-	const data = GetData();
+const GetCompartmentTotal = (dayNumber) => {
+	const data = GetData(dayNumber);
 
 	const total = data.reduce((sum, row) => {
 		const half = Math.ceil(row.length / 2);
@@ -45,8 +37,8 @@ const GetCompartmentTotal = () => {
 	console.log(`The compartment total is: ${total}`);
 };
 
-const ElfIdentification = () => {
-	const data = GetData();
+const ElfIdentification = (dayNumber) => {
+	const data = GetData(dayNumber);
 
 	let total = 0;
 	for (let i = 0; i < data.length; i += 3) {
